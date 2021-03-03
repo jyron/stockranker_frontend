@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
+import Box from "@material-ui/core/Box";
 import { Container, Button, Grid } from "@material-ui/core";
+//import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
+// import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
 
 const vote_url = "http://localhost:8000/vote";
 const StocksContext = React.createContext({
@@ -31,7 +34,7 @@ export default function Stocks() {
       method: "POST",
       headers: {
         "Content-type": "application/json",
-        Authorization: "Bearer " + localStorage.user,
+        Authorization: "Bearer " + localStorage.token,
       },
       body: data,
     })
@@ -42,21 +45,27 @@ export default function Stocks() {
   return (
     <StocksContext.Provider value={{ stocks, fetchStocks }}>
       <Container>
-        <Grid container direction="row">
+        <Grid container>
           <div>
             {stocks.map((stock) => (
-              <Grid item>
+              <Box key={stock.symbol}>
                 <p>
-                  { stock.name }     { stock.symbol }          { stock.price }
-                  <Button onClick={(e) => createVote(true, stock, e)}>
-                    Yes
-                  </Button>
-                  /{" "}
-                  <Button onClick={(e) => createVote(false, stock, e)}>
-                    No
-                  </Button>
+                  {stock.name} {stock.symbol} ${stock.price}
                 </p>
-              </Grid>
+                <Button
+                  style={{ color: "green" }}
+                  onClick={(e) => createVote(true, stock, e)}
+                >
+                  {stock.likes}
+                </Button>
+                /
+                <Button
+                  style={{ color: "red" }}
+                  onClick={(e) => createVote(false, stock, e)}
+                >
+                  {stock.dislikes}
+                </Button>
+              </Box>
             ))}
           </div>
         </Grid>
