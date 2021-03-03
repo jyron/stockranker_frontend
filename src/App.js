@@ -27,7 +27,7 @@ const App = () => {
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
-      const foundUser =loggedInUser;
+      const foundUser = loggedInUser;
       setUser(foundUser);
     }
   }, []);
