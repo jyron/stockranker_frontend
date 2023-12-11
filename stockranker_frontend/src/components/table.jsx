@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
+import Search from './search'
 
 const Table = () => {
   const [stocks, setStocks] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const itemsPerPage = 25;
   const pageCount = Math.ceil(stocks.length / itemsPerPage);
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
+  };
+
+  const handleSearch = (term) => {
+    setCurrentPage(0);
+    setSearchTerm(term);
   };
 
   useEffect(() => {
@@ -27,13 +34,20 @@ const Table = () => {
     fetchStocks();
   }, []);
 
-  const displayedStocks = stocks.slice(
+  const filteredStocks = searchTerm
+    ? stocks.filter((stock) =>
+      stock.ticker.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    : stocks;
+
+  const displayedStocks = filteredStocks.slice(
     currentPage * itemsPerPage,
     (currentPage + 1) * itemsPerPage
   );
 
   return (
     <div className="rounded-lg border border-gray-200">
+      <Search onSearch={handleSearch} />
       <div className="overflow-x-auto rounded-t-lg">
         <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
           <thead className="text-left">
