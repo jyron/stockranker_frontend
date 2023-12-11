@@ -1,20 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Header from './components/header'
-import Table from './components/table'
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import Header from './components/header';
+import Table from './components/table';
 
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <>
-    <Header/>
-    <Table/>
-</>
-  )
-}
+      <Header />
+      <Table />
+    </>
+  );
+};
 
-export default App
+export default App;
