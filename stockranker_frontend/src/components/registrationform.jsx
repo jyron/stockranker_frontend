@@ -37,10 +37,10 @@ const RegistrationForm = ({ onSuccess }) => {
                 throw new Error(`HTTP error! ${JSON.stringify(errorData)}`);
             }
 
-            // Registration successful
+
             setRegistrationSuccess(true);
 
-            // Call the onSuccess callback after a delay (e.g., 3 seconds)
+
             setTimeout(() => {
                 setRegistrationSuccess(false);
                 onSuccess();
