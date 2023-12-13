@@ -45,8 +45,7 @@ const LoginForm = ({ onSuccess }) => {
 
     return (
         <form onSubmit={handleSubmit} className="p-6 space-y-4 bg-white rounded-lg shadow-lg">
-            {/* Render your login form fields and submit button */}
-            {/* Example: */}
+
             <div className="flex flex-col">
                 <label htmlFor="email" className="text-sm font-medium">
                     Email:
@@ -77,7 +76,6 @@ const LoginForm = ({ onSuccess }) => {
                 />
             </div>
 
-            {/* Other form fields */}
             <button
                 type="submit"
                 className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
