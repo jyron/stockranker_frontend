@@ -34,9 +34,20 @@ const Table = () => {
     fetchStocks();
   }, []);
 
+  const handleLike = (stockId) => {
+    // Implement logic to handle liking a stock
+    console.log(`Liked stock with ID: ${stockId}`);
+  };
+
+  const handleDislike = (stockId) => {
+    // Implement logic to handle disliking a stock
+    console.log(`Disliked stock with ID: ${stockId}`);
+  };
+
   const filteredStocks = searchTerm
     ? stocks.filter((stock) =>
-      stock.ticker.toLowerCase().includes(searchTerm.toLowerCase())
+      stock.ticker.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      stock.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
     : stocks;
 
@@ -54,18 +65,37 @@ const Table = () => {
             <tr>
               <th className="px-4 py-2 font-medium text-gray-900">Ticker</th>
               <th className="px-4 py-2 font-medium text-gray-900">Name</th>
-              <th className="px-4 py-2 font-medium text-gray-900">Price</th>
+
               <th className="px-4 py-2 font-medium text-gray-900">Industry</th>
+              <th className="px-4 py-2 font-medium text-gray-900">Actions</th>
             </tr>
           </thead>
 
           <tbody className="divide-y divide-gray-200">
             {displayedStocks.map((stock) => (
-              <tr key={stock.id} className="hover:bg-gray-100 cursor-pointer">
-                <td className="px-4 py-2 text-gray-900">{stock.ticker}</td>
+              <tr key={stock._id} className="hover:bg-gray-100 cursor-pointer">
+                <td className="px-4 py-2 text-gray-900">
+                  <div>{stock.ticker}</div>
+                  <div className="mt-1 text-gray-700">${stock.price}</div>
+                </td>
                 <td className="px-4 py-2 text-gray-900">{stock.name}</td>
-                <td className="px-4 py-2 text-gray-700">${stock.price}</td>
                 <td className="px-4 py-2 text-gray-700">{stock.finnhubIndustry}</td>
+                <td className="px-4 py-2 text-gray-900">
+                  <div className="flex items-center">
+                    <button
+                      onClick={() => handleLike(stock._id)}
+                      className="mr-2 text-green-500 hover:text-green-700"
+                    >
+                      Like
+                    </button>
+                    <button
+                      onClick={() => handleDislike(stock.id)}
+                      className="text-red-500 hover:text-red-700"
+                    >
+                      Dislike
+                    </button>
+                  </div>
+                </td>
               </tr>
             ))}
           </tbody>
