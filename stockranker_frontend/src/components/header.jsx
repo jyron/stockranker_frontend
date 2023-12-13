@@ -14,41 +14,37 @@ const Header = () => {
     const openRegisterModal = () => setShowRegisterModal(true);
     const closeRegisterModal = () => setShowRegisterModal(false);
 
-    useEffect(() => {
-        const checkLoggedInUser = async () => {
-            try {
-                const response = await fetch('http://localhost:8000/api/v0/users/me', {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json',
 
-                    },
-                    credentials: 'include',
-                });
+    const checkLoggedInUser = async () => {
+        try {
+            const response = await fetch('http://localhost:8000/api/v0/users/me', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
 
-                if (response.ok) {
+                },
+                credentials: 'include',
+            });
 
-                    const userData = await response.json();
-                    setUserEmail(userData.email);
-                } else {
+            if (response.ok) {
 
-                    setUserEmail(null);
-                }
-            } catch (error) {
-                console.error('Error checking logged-in user:', error);
+                const userData = await response.json();
+                setUserEmail(userData.email);
+            } else {
+
+                setUserEmail(null);
             }
-        };
-
-
-        checkLoggedInUser();
-    }, []); // The empty dependency array ensures that this effect runs only once on mount
+        } catch (error) {
+            console.error('Error checking logged-in user:', error);
+        }
+    };
 
     const handleLogout = async () => {
         try {
             const response = await fetch('http://localhost:8000/api/v0/auth/jwt/logout', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
                 },
                 credentials: 'include',
             });
@@ -58,13 +54,26 @@ const Header = () => {
                 return;
             }
 
-            // Logout successful, set userEmail to null
+
+
             setUserEmail(null);
             console.log('Logout successful');
         } catch (error) {
             console.error('Logout failed:', error);
         }
     };
+    const handleLoginSuccess = () => {
+
+        closeLoginModal();
+
+
+        checkLoggedInUser();
+    };
+
+    useEffect(() => {
+
+        checkLoggedInUser();
+    }, []);
 
     return (
         <header className="bg-gray-50">
@@ -100,9 +109,6 @@ const Header = () => {
                     </p>
                 </div>
             </div>
-
-
-            {/* Auth Modal */}
             {/* Login Modal */}
             {showLoginModal && (
                 <div className="fixed z-10 inset-0 overflow-y-auto">
@@ -117,7 +123,7 @@ const Header = () => {
 
                         {/* Login Modal Content */}
                         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                            <LoginForm onSuccess={closeLoginModal} />
+                            <LoginForm onSuccess={handleLoginSuccess} />
                         </div>
                     </div>
                 </div>
