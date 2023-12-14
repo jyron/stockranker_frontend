@@ -34,14 +34,44 @@ const Table = () => {
     fetchStocks();
   }, []);
 
-  const handleLike = (stockId) => {
-    // Implement logic to handle liking a stock
-    console.log(`Liked stock with ID: ${stockId}`);
+  const handleLike = async (stockId) => {
+    try {
+      const response = await fetch(`http://localhost:8000/api/v0/stocks/${stockId}/like`, {
+        method: 'POST',
+        credentials: 'include',
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`HTTP error! ${JSON.stringify(errorData)}`);
+      }
+
+      console.log(`Liked stock with ID: ${stockId}`);
+      // Implement logic to update the UI, e.g., show a success message or update local state
+    } catch (error) {
+      console.error('Like failed:', error);
+      // Implement error handling, e.g., show an error message to the user
+    }
   };
 
-  const handleDislike = (stockId) => {
-    // Implement logic to handle disliking a stock
-    console.log(`Disliked stock with ID: ${stockId}`);
+  const handleDislike = async (stockId) => {
+    try {
+      const response = await fetch(`http://localhost:8000/api/v0/stocks/${stockId}/dislike`, {
+        method: 'POST',
+        credentials: 'include',
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`HTTP error! ${JSON.stringify(errorData)}`);
+      }
+
+      console.log(`Disliked stock with ID: ${stockId}`);
+      // Implement logic to update the UI, e.g., show a success message or update local state
+    } catch (error) {
+      console.error('Dislike failed:', error);
+      // Implement error handling, e.g., show an error message to the user
+    }
   };
 
   const filteredStocks = searchTerm
@@ -89,7 +119,7 @@ const Table = () => {
                       Like
                     </button>
                     <button
-                      onClick={() => handleDislike(stock.id)}
+                      onClick={() => handleDislike(stock._id)}
                       className="text-red-500 hover:text-red-700"
                     >
                       Dislike
