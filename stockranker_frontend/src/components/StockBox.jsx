@@ -1,5 +1,3 @@
-import React from 'react';
-
 const StockBox = ({ stock }) => {
     const isPositiveChange = stock.percent_change >= 0;
     const colorClass = isPositiveChange ? 'bg-green-200' : 'bg-red-200';
@@ -8,13 +6,13 @@ const StockBox = ({ stock }) => {
     const roundedPercentChange = parseFloat(stock.percent_change).toFixed(2);
 
     return (
-        <div className={`flex items-center py-2 border border-gray-300 rounded-md mb-2 overflow-hidden`}>
+        <div className={`flex items-center px-2 py-1 border border-gray-300 rounded-md mb-2`}>
             <div className={`w-2 h-full ${colorClass} rounded-l-md`}></div>
-            <div className="flex-grow pl-2 text-xs">
-                <span className={`font-bold ${textColorClass} overflow-hidden overflow-ellipsis whitespace-nowrap`}>{stock.name}</span>
-                <span className={`mt-1 ${textColorClass} ml-2 block sm:inline`}>
+            <div className="flex-grow pl-2 text-sm">
+                <span className={`font-medium ${textColorClass} inline`}>{stock.ticker}</span>
+                <div className={` whitespace-nowrap ml-2 ${textColorClass} inline`}>
                     {isPositiveChange ? '+' : ''} {roundedPercentChange}%
-                </span>
+                </div>
             </div>
         </div>
     );

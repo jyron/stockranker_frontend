@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React, { useState, useEffect, useRef } from 'react';
 import StockBox from './StockBox';
 
 const StockCarousel = () => {
     const [stocks, setStocks] = useState([]);
+    const containerRef = useRef(null);
 
     useEffect(() => {
         const fetchStocks = async () => {
@@ -21,36 +19,32 @@ const StockCarousel = () => {
         fetchStocks();
     }, []);
 
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 6000,
-        slidesToShow: 3,
-        slidesToScroll: 2,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToScroll: 1,
-                    slidesToShow: 1,
-                },
-            },
-        ],
-    };
+    useEffect(() => {
+        const container = containerRef.current;
+
+        const scroll = () => {
+            container.scrollLeft += 1; // Adjust the scrolling speed as needed
+
+            // Reset scrollLeft to 0 when it reaches the end
+            if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+                container.scrollLeft = 0;
+            }
+
+            requestAnimationFrame(scroll);
+        };
+
+        const animationId = requestAnimationFrame(scroll);
+
+        return () => cancelAnimationFrame(animationId);
+    }, []);
 
     return (
-        <div className="overflow-x-auto rounded-lg border border-gray-200 p-4 shadow-md">
-            <Slider {...settings}>
-                {stocks.map((stock) => (
-                    <StockBox key={stock._id} stock={stock} />
-                ))}
-            </Slider>
+        <div ref={containerRef} className="flex overflow-hidden rounded-t-lg">
+            {stocks.map((stock) => (
+                <StockBox key={stock._id} stock={stock} />
+            ))}
         </div>
     );
 };
 
 export default StockCarousel;
-
-
