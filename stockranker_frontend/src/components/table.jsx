@@ -67,10 +67,8 @@ const Table = () => {
       }
 
       console.log(`Disliked stock with ID: ${stockId}`);
-      // Implement logic to update the UI, e.g., show a success message or update local state
     } catch (error) {
       console.error('Dislike failed:', error);
-      // Implement error handling, e.g., show an error message to the user
     }
   };
 
@@ -87,30 +85,33 @@ const Table = () => {
   );
 
   return (
-    <div className="rounded-lg border border-gray-200">
+    <div className="p-8 rounded-lg border border-gray-200">
       <Search onSearch={handleSearch} />
       <div className="overflow-x-auto rounded-t-lg">
         <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
           <thead className="text-left">
             <tr>
-              <th className="px-4 py-2 font-medium text-gray-900">Ticker</th>
-              <th className="px-4 py-2 font-medium text-gray-900">Name</th>
-
-              <th className="px-4 py-2 font-medium text-gray-900">Industry</th>
-              <th className="px-4 py-2 font-medium text-gray-900">Actions</th>
+              <th className="px-2 py-2 font-medium text-gray-900">Logo</th>
+              <th className="px-2 py-2 font-medium text-gray-900">Company</th>
+              <th className="px-2 py-2 font-medium text-gray-900">Price</th>
+              <th className="px-2 py-2 font-medium text-gray-900">Actions</th>
             </tr>
           </thead>
 
           <tbody className="divide-y divide-gray-200">
             {displayedStocks.map((stock) => (
               <tr key={stock._id} className="hover:bg-gray-100 cursor-pointer">
-                <td className="px-4 py-2 text-gray-900">
-                  <div>{stock.ticker}</div>
-                  <div className="mt-1 text-gray-700">${stock.price}</div>
+                <td className="px-2 py-2 text-gray-900">
+                  <img src={stock.logo} alt="Company Logo" className="h-8 w-8 object-cover rounded-full" />
                 </td>
-                <td className="px-4 py-2 text-gray-900">{stock.name}</td>
-                <td className="px-4 py-2 text-gray-700">{stock.finnhubIndustry}</td>
-                <td className="px-4 py-2 text-gray-900">
+                <td className="px-2 py-2 text-gray-900">
+                  <div>
+                    <span className="font-medium mr-2">{stock.ticker}</span>
+                    <span className="text-gray-800">{stock.name}</span>
+                  </div>
+                </td>
+                <td className="px-2 py-2 text-gray-900">${stock.price}</td>
+                <td className="px-2 py-2 text-gray-900">
                   <div className="flex items-center">
                     <button
                       onClick={() => handleLike(stock._id)}
