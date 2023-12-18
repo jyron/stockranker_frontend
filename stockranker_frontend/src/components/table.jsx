@@ -104,10 +104,12 @@ const Table = () => {
                 <td className="px-2 py-2 text-gray-900">
                   <img src={stock.logo} alt="Company Logo" className="h-8 w-8 object-cover rounded-full" />
                 </td>
-                <td className="px-2 py-2 text-gray-900">
+                <td className=" py-2 text-gray-900">
                   <div>
-                    <span className="font-medium mr-2">{stock.ticker}</span>
-                    <span className="text-gray-800">{stock.name}</span>
+                    <Link to={`/stocks/${stock.ticker}`} className="text-blue-500 hover:text-blue-700">
+                      <span className="font-medium mr-2">{stock.ticker}</span>
+                      <span className="text-gray-800">{stock.name}</span>
+                    </Link>
                   </div>
                 </td>
                 <td className="px-2 py-2 text-gray-900">${stock.price}</td>

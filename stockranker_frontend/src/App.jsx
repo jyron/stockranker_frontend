@@ -1,18 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Header from './components/header';
-import StockCarousel from './components/StockCarousel';
-import Table from './components/table';
+import Home from './pages/Home';
+import StockDetailsPage from './pages/StockDetailsPage';
 
 
 const App = () => {
   return (
-    <>
-      <Header />
-      <StockCarousel />
-      <Table />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/stocks/:ticker" element={<StockDetailsPage />} />
+      </Routes>
+    </BrowserRouter>
+
   );
 };
 
