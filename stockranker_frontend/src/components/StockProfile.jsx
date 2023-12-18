@@ -39,7 +39,6 @@ const StockProfile = ({ stock }) => {
                 </div>
             </div>
 
-
             <div className="mt-8">
                 <h2 className="text-2xl font-semibold mb-4 text-gray-800">Stock Details</h2>
                 <ul className="list-disc ml-4 text-gray-700">
