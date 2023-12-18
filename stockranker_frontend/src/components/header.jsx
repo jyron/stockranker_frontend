@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import AuthenticatedHeader from './AuthenticatedHeader';
 import LoginForm from './loginform';
 import RegistrationForm from './registrationform';
@@ -102,12 +103,14 @@ const Header = () => {
 
 
                 <div className="mt-8">
-                    <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">StockRanker.Co</h1>
-
+                    <Link to="/" className="text-blue-500 hover:underline">
+                        <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">StockRanker.Co</h1>
+                    </Link>
                     <p className="mt-1.5 text-sm text-gray-500">
                         Real Opinions, Real Comments, Real Rankings! 🚀
                     </p>
                 </div>
+
             </div>
             {/* Login Modal */}
             {showLoginModal && (

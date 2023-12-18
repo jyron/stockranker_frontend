@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import StockProfile from '../components/StockProfile';
 import Header from '../components/header';
 import StockCarousel from '../components/StockCarousel';
+import Footer from '../components/footer';
 
 
 const StockDetailsPage = () => {
@@ -32,6 +33,7 @@ const StockDetailsPage = () => {
             <Header />
             <StockCarousel />
             <StockProfile stock={stockDetails} />
+            <Footer />
         </div>
     );
 };

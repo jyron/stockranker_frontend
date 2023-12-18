@@ -1,4 +1,5 @@
 import React from 'react';
+import ThumbsUpDown from './ThumbsUpDown'; // Adjust the path based on your project structure
 
 const StockProfile = ({ stock }) => {
     return (
@@ -9,14 +10,17 @@ const StockProfile = ({ stock }) => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
                 <div>
                     <img
                         src={stock.logo || '/default-logo.png'}
                         alt={`${stock.name} Logo`}
                         className="w-full h-auto mb-4 rounded shadow-lg"
                     />
+                    <div className="flex items-center space-x-4">
+                        <ThumbsUpDown stock={stock} />
+                    </div>
                 </div>
-
                 <div>
                     <ul className="list-disc ml-4 text-gray-700">
                         <li className="mb-2">
@@ -31,10 +35,10 @@ const StockProfile = ({ stock }) => {
                         <li className="mb-2">
                             <strong>Industry:</strong> {stock.finnhubIndustry || 'N/A'}
                         </li>
-                        {/* Add more details as needed */}
                     </ul>
                 </div>
             </div>
+
 
             <div className="mt-8">
                 <h2 className="text-2xl font-semibold mb-4 text-gray-800">Stock Details</h2>
@@ -43,12 +47,11 @@ const StockProfile = ({ stock }) => {
                         <strong>Market Capitalization:</strong> {stock.marketCapitalization || 'N/A'}
                     </li>
                     <li className="mb-2">
-                        <strong>Price:</strong> {stock.price || 'N/A'}
+                        <strong>Price:</strong> ${stock.price || 'N/A'}
                     </li>
                     <li className="mb-2">
-                        <strong>Price Change:</strong> {stock.price_change || 'N/A'}
+                        <strong>Price Change:</strong> ${stock.price_change || 'N/A'}
                     </li>
-                    {/* Add more stock details as needed */}
                 </ul>
             </div>
 
@@ -56,16 +59,13 @@ const StockProfile = ({ stock }) => {
                 <h2 className="text-2xl font-semibold mb-4 text-gray-800">Stock Performance</h2>
                 <ul className="list-disc ml-4 text-gray-700">
                     <li className="mb-2">
-                        <strong>High Price Today:</strong> {stock.high_price_today || 'N/A'}
+                        <strong>High Price Today:</strong> ${stock.high_price_today || 'N/A'}
                     </li>
                     <li className="mb-2">
-                        <strong>Low Price Today:</strong> {stock.low_price_today || 'N/A'}
+                        <strong>Low Price Today:</strong> ${stock.low_price_today || 'N/A'}
                     </li>
-                    {/* Add more performance details as needed */}
                 </ul>
             </div>
-
-            {/* Add more sections based on your data structure */}
         </div>
     );
 };
