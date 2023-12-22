@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import Search from './search'
+import DisqusCommentCount from './disqusCommentCount';
 
 const Table = () => {
   const [stocks, setStocks] = useState([]);
@@ -115,6 +116,7 @@ const Table = () => {
                 <td className="px-2 py-2 text-gray-900">${stock.price}</td>
                 <td className="px-2 py-2 text-gray-900">
                   <div className="flex items-center">
+
                     <button
                       onClick={() => handleLike(stock._id)}
                       className="mr-2 text-green-500 hover:text-green-700"
