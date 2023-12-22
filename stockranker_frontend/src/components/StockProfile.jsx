@@ -1,7 +1,42 @@
-import React from 'react';
-import ThumbsUpDown from './ThumbsUpDown'; // Adjust the path based on your project structure
+import React, { useState } from 'react';
+import ThumbsUpDown from './ThumbsUpDown';
+import Comment from './Comment';
+
 
 const StockProfile = ({ stock }) => {
+    const [newComment, setNewComment] = useState('');
+    const [comments, setComments] = useState(stock.comments || []);
+
+
+    const handleComment = async (stockId) => {
+        const url = "http://localhost:8000/api/v0/stock_comment"
+        const data = {
+            stock_id: stockId,
+            comment: newComment,
+        };
+
+        await fetch(url, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(result => {
+                console.log('Success:', result);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    };
     return (
         <div className="max-w-2xl mx-auto mt-8 p-4 border border-gray-300 rounded shadow-lg">
             <div className="flex items-center justify-between mb-4">
@@ -64,6 +99,25 @@ const StockProfile = ({ stock }) => {
                         <strong>Low Price Today:</strong> ${stock.low_price_today || 'N/A'}
                     </li>
                 </ul>
+            </div>
+            <div>
+                <h2>Comments</h2>
+                <div className="mb-4">
+                    <input
+                        type="text"
+                        value={newComment}
+                        onChange={(e) => setNewComment(e.target.value)}
+                        placeholder="Type your comment..."
+                        className="w-full p-2 border border-gray-300 rounded"
+                    />
+                    <button onClick={() => handleComment(stock._id)} className="bg-blue-500 text-white px-4 py-2 rounded ml-2">
+                        Submit Comment
+                    </button>
+                </div>
+
+                {stock.comments.map((comment) => (
+                    <Comment key={comment._id} comment={comment} onReply={(replyContent) => handleReply(comment._id, replyContent)} />
+                ))}
             </div>
         </div>
     );

@@ -4,13 +4,36 @@ const Comment = ({ comment, onReply }) => {
     const [isReplying, setIsReplying] = useState(false);
     const [newReply, setNewReply] = useState('');
 
-    const handleReply = () => {
-        // Implement the logic to handle adding a reply
-        // You may want to send the reply to the backend and update the comments state
-        // For simplicity, let's assume you have a function addReplyToComment in your backend API
-        // const updatedComment = addReplyToComment(comment.id, newReply);
-        // Update the comments state with the updatedComment
-        setIsReplying(false);
+    const handleReply = async () => {
+        try {
+            const response = await fetch('http://localhost:8000/api/v0/reply_comment', {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    comment_id: comment._id,
+                    stock_id: comment.stock_id,
+                    content: newReply,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to add reply');
+            }
+
+            const newReplyData = await response.json();
+
+            // Update state to show the new reply
+            onReply(newReplyData);
+
+            // Clear the input field
+            setNewReply('');
+            setIsReplying(false);
+        } catch (error) {
+            console.error('Error adding reply:', error);
+        }
     };
 
     return (
@@ -29,7 +52,7 @@ const Comment = ({ comment, onReply }) => {
                 </>
             )}
             {comment.replies.map((reply) => (
-                <Comment key={reply.id} comment={reply} onReply={onReply} />
+                <Comment key={reply._id} comment={reply} onReply={onReply} />
             ))}
         </div>
     );
