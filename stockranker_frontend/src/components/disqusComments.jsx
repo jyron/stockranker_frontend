@@ -1,4 +1,5 @@
 import { DiscussionEmbed } from "disqus-react"
+import { CommentCount } from 'disqus-react';
 const DisqusComments = ({ post }) => {
     const disqusShortname = "stockranker"
     const disqusConfig = {
