@@ -3,7 +3,7 @@ import { CommentCount } from 'disqus-react';
 const DisqusComments = ({ post }) => {
     const disqusShortname = "stockranker"
     const disqusConfig = {
-        url: "http://localhost:5173/",
+        url: "https://stockranker.co/",
         identifier: post.id, // Single post id
 
     }

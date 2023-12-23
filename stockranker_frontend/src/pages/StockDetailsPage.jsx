@@ -13,7 +13,7 @@ const StockDetailsPage = () => {
     useEffect(() => {
         const fetchStockDetails = async () => {
             try {
-                const response = await fetch(`http://127.0.0.1:8000/api/v0/stocks/${ticker}`);
+                const response = await fetch(`https://stockranker-backend.onrender.com/stocks/${ticker}`);
                 const data = await response.json();
                 setStockDetails(data);
             } catch (error) {

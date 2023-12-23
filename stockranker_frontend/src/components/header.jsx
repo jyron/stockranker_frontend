@@ -18,7 +18,7 @@ const Header = () => {
 
     const checkLoggedInUser = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/v0/users/me', {
+            const response = await fetch('https://https://stockranker-backend.onrender.com/api/v0/users/me', {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',
