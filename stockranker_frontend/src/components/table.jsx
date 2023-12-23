@@ -24,7 +24,7 @@ const Table = () => {
   useEffect(() => {
     const fetchStocks = async () => {
       try {
-        const response = await fetch('https://stockranker-backend.onrender.com/stocks');
+        const response = await fetch('https://stockranker-backend.onrender.com/api/v0/stocks');
         const data = await response.json();
         setStocks(data);
       } catch (error) {
@@ -37,7 +37,7 @@ const Table = () => {
 
   const handleLike = async (stockId) => {
     try {
-      const response = await fetch(`https://stockranker-backend.onrender.com/stocks/${stockId}/like`, {
+      const response = await fetch(`https://stockranker-backend.onrender.com/api/v0/stocks/${stockId}/like`, {
         method: 'POST',
         credentials: 'include',
       });
@@ -57,7 +57,7 @@ const Table = () => {
 
   const handleDislike = async (stockId) => {
     try {
-      const response = await fetch(`https://stockranker-backend.onrender.com/stocks/${stockId}/dislike`, {
+      const response = await fetch(`https://stockranker-backend.onrender.com/api/v0/stocks/${stockId}/dislike`, {
         method: 'POST',
         credentials: 'include',
       });

@@ -19,7 +19,7 @@ const LoginForm = ({ onSuccess }) => {
         e.preventDefault();
 
         try {
-            const response = await fetch('https://stockranker-backend.onrender.com/auth/jwt/login', {
+            const response = await fetch('https://stockranker-backend.onrender.com/api/v0/auth/jwt/login', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

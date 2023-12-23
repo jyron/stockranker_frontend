@@ -21,7 +21,7 @@ const RegistrationForm = ({ onSuccess }) => {
         console.log(formData)
 
         try {
-            const response = await fetch('https://stockranker-backend.onrender.com/auth/register', {
+            const response = await fetch('https://stockranker-backend.onrender.com/api/v0/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

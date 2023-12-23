@@ -8,7 +8,7 @@ const StockCarousel = () => {
     useEffect(() => {
         const fetchStocks = async () => {
             try {
-                const response = await fetch('https://stockranker-backend.onrender.com/stocks');
+                const response = await fetch('https://stockranker-backend.onrender.com/api/v0/stocks');
                 const data = await response.json();
                 setStocks(data);
             } catch (error) {
