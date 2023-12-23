@@ -47,11 +47,9 @@ const Table = () => {
         throw new Error(`HTTP error! ${JSON.stringify(errorData)}`);
       }
 
-      console.log(`Liked stock with ID: ${stockId}`);
-      // Implement logic to update the UI, e.g., show a success message or update local state
     } catch (error) {
-      console.error('Like failed:', error);
-      // Implement error handling, e.g., show an error message to the user
+      alert('Login to like a stock!');
+
     }
   };
 
@@ -66,10 +64,8 @@ const Table = () => {
         const errorData = await response.json();
         throw new Error(`HTTP error! ${JSON.stringify(errorData)}`);
       }
-
-      console.log(`Disliked stock with ID: ${stockId}`);
     } catch (error) {
-      console.error('Dislike failed:', error);
+      alert('Login to dislike a stock!');
     }
   };
 
