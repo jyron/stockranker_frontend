@@ -2,8 +2,8 @@ import { DiscussionEmbed } from "disqus-react"
 const DisqusComments = ({ stock }) => {
     const disqusShortname = "stockranker"
     const disqusConfig = {
-        url: 'https://stockranker.co/',
-        identifier: stock._id, // Single post id
+        url: `https://stockranker.co/stocks/${stock.ticker}`,
+        identifier: stock.id, // Single post id
 
     }
     return (
