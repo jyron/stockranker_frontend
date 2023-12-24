@@ -10,13 +10,9 @@ import Footer from '../components/footer';
 
 const Home = () => {
 
-    const gradientBackgroundStyle = {
-        background: 'linear-gradient(to right, #ff7e5f, #feb47b)', // Change the colors as needed
-        height: '100vh', // Adjust the height to cover the entire viewport
-        overflow: 'hidden', // Ensure the gradient covers the entire viewport
-    };
+
     return (
-        <div className="bg-gradient-to-r from-red-500 to-yellow-500 min-h-screen overflow-hidden">
+        <div>
             <Header />
             <StockCarousel />
             <Table />
