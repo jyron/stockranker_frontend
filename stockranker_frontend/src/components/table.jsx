@@ -103,7 +103,7 @@ const Table = () => {
                 </td>
                 <td className=" py-2 text-gray-900">
                   <div>
-                    <Link to={`/stocks/${stock.ticker}`} className="text-blue-500 hover:text-blue-700">
+                    <Link to={`/stocks${stock.ticker}`} className="text-blue-500 hover:text-blue-700">
                       <span className="font-medium mr-2">{stock.ticker}</span>
                       <span className="text-gray-800">{stock.name}</span>
                     </Link>
