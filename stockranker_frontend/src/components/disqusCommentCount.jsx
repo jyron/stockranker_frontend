@@ -1,17 +1,18 @@
+import React from 'react';
 import { CommentCount } from 'disqus-react';
+
 const DisqusCommentCount = ({ post }) => {
-    <CommentCount
-        shortname='stockranker'
-        config={
-            {
-                url: "http://localhost:5173/",
-                identifier: post.id,
+    const disqusShortname = 'stockranker';
+    const disqusConfig = {
+        url: `https://stockranker.co/stocks/${post.ticker}`,
+        identifier: post.ticker + '_0', // Single post id
+    };
 
-            }
-        }
-    >
+    return (
+        <CommentCount shortname={disqusShortname} config={disqusConfig}>
+            Comments
+        </CommentCount>
+    );
+};
 
-        Comments
-    </CommentCount>
-}
 export default DisqusCommentCount;

@@ -111,6 +111,9 @@ const Table = () => {
                 </td>
                 <td className="px-2 py-2 text-gray-900">${stock.price}</td>
                 <td className="px-2 py-2 text-gray-900">
+                  <DisqusCommentCount post={stock} />
+                </td>
+                <td className="px-2 py-2 text-gray-900">
                   <div className="flex items-center">
 
                     <button
