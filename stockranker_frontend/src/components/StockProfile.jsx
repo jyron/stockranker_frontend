@@ -68,7 +68,7 @@ const StockProfile = ({ stock }) => {
                     </li>
                 </ul>
             </div>
-            <DisqusComments post={stock} />
+            {/* <DisqusComments post={stock} /> */}
 
         </div>
     );
