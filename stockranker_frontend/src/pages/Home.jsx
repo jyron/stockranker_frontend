@@ -6,17 +6,15 @@ import StockCarousel from '../components/StockCarousel';
 import Table from '../components/table';
 import Footer from '../components/footer';
 
-
-
 const Home = () => {
-
-
     return (
-        <div>
+        <div className="min-h-screen overflow-hidden">
+
             <Header />
             <StockCarousel />
             <Table />
             <Footer />
+
         </div>
     );
 };
