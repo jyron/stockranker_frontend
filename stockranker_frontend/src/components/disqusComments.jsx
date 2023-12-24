@@ -3,7 +3,7 @@ const DisqusComments = ({ stock }) => {
     const disqusShortname = "stockranker"
     const disqusConfig = {
         url: `https://stockranker.co/`,
-        identifier: `${stock.id}-${stock.ticker}`, // Single post id
+        identifier: stock.id, // Single post id
 
     }
     return (
