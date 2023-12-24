@@ -91,7 +91,7 @@ const Table = () => {
               <th className="px-2 py-2 font-medium text-gray-900">Logo</th>
               <th className="px-2 py-2 font-medium text-gray-900">Company</th>
               <th className="px-2 py-2 font-medium text-gray-900">Price</th>
-              <th className="px-2 py-2 font-medium text-gray-900">Actions</th>
+              <th className="px-2 py-2 font-medium text-gray-900">Comments</th>
             </tr>
           </thead>
 
