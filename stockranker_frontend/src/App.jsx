@@ -7,7 +7,7 @@ import StockDetailsPage from './pages/StockDetailsPage';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/'>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/stocks/:ticker" element={<StockDetailsPage />} />
