@@ -4,13 +4,12 @@ import { CommentCount } from 'disqus-react';
 const DisqusCommentCount = ({ post }) => {
     const disqusShortname = 'stockranker';
     const disqusConfig = {
-        url: `https://stockranker.co/stocks/${post.ticker}`,
+        url: `https://stockranker.co/stocks/`,
         identifier: post.ticker + '_0', // Single post id
     };
 
     return (
         <>
-
             <CommentCount shortname={disqusShortname} config={disqusConfig} />
         </>
     );
