@@ -6,7 +6,7 @@ import StockCarousel from '../components/StockCarousel';
 import Footer from '../components/footer';
 
 
-const StockDetailsPage = () => {
+const StockDetailsPage = ({ stocks }) => {
     const { ticker } = useParams();
     const [stockDetails, setStockDetails] = useState(null);
 
@@ -31,7 +31,7 @@ const StockDetailsPage = () => {
     return (
         <div>
             <Header />
-            <StockCarousel />
+            <StockCarousel stocks={stocks} />
             <StockProfile stock={stockDetails} />
             <Footer />
         </div>
