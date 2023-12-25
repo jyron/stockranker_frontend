@@ -9,9 +9,9 @@ const DisqusCommentCount = ({ post }) => {
     };
 
     return (
-        <>
+        <div>
             <CommentCount shortname={disqusShortname} config={disqusConfig} />
-        </>
+        </div>
     );
 };
 
