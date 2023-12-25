@@ -17,12 +17,27 @@ const NewsArticle = ({ article }) => {
         ticker_sentiment,
     } = article;
 
+    // Convert the time_published string into a JavaScript Date object
+    const timePublishedDate = new Date(
+        time_published.slice(0, 4),
+        time_published.slice(4, 6) - 1,
+        time_published.slice(6, 8),
+        time_published.slice(9, 11),
+        time_published.slice(11, 13),
+        time_published.slice(13, 15)
+    );
+
+    // Format the date to only display the date portion
+    const formattedDate = isNaN(timePublishedDate)
+        ? 'Invalid Date'
+        : timePublishedDate.toLocaleDateString();
+
     return (
         <div className="max-w-2xl mx-auto bg-white shadow-md p-4 my-4 rounded-md grid gap-4 grid-cols-1 sm:grid-cols-2">
             <div>
                 <h2 className="text-lg font-bold mb-1">{title}</h2>
                 <p className="text-sm text-gray-600">
-                    Published on {new Date(time_published).toLocaleString()} by {authors.join(', ')}
+                    Published on {formattedDate} by {authors.join(', ')}
                 </p>
                 <img src={banner_image} alt={title} className="mt-2 rounded-md w-full h-32 object-cover" />
                 <p className="text-sm text-gray-700 mt-2">{summary}</p>
