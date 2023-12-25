@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 const Footer = () => {
     return (
-        <footer className="bg-gray-900 text-white py-8">
+        <footer className="bg-gray-900 text-white py-x py-8">
             <div className="container mx-auto flex flex-wrap justify-between">
                 {/* Footer Links */}
                 <div className="w-full sm:w-1/2 md:w-1/4 lg:w-1/5 mb-4">
