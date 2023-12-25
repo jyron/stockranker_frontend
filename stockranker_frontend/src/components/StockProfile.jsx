@@ -51,7 +51,7 @@ const StockProfile = ({ stock }) => {
                     <li className="mb-2">
                         <strong>Price:</strong> ${stock.price || 'N/A'}
                     </li>
-                    <li className="mb-2">
+                    <li className={`mb-2 ${stock.price_change >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                         <strong>Price Change:</strong> ${stock.price_change || 'N/A'}
                     </li>
                 </ul>
