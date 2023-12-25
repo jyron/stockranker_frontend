@@ -1,25 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import StockBox from './StockBox';
 
-const StockCarousel = () => {
-    const [stocks, setStocks] = useState([]);
+const StockCarousel = ({ stocks }) => {
     const containerRef = useRef(null);
+    const [carouselStocks, setCarouselStocks] = useState([]);
 
     useEffect(() => {
-        const fetchStocks = async () => {
-            try {
-                const response = await fetch('https://stockranker-backend.onrender.com/api/v0/stocks');
-                const data = await response.json();
-                setStocks(data);
-            } catch (error) {
-                console.error('Error fetching stocks:', error);
-            }
-        };
+        // Update the internal state when the 'stocks' prop changes
+        setCarouselStocks(stocks);
 
-        fetchStocks();
-    }, []);
-
-    useEffect(() => {
         const container = containerRef.current;
 
         const scroll = () => {
@@ -35,13 +24,19 @@ const StockCarousel = () => {
 
         const animationId = requestAnimationFrame(scroll);
 
+        // Cleanup function to stop the animation when the component unmounts
         return () => cancelAnimationFrame(animationId);
-    }, []);
+    }, [stocks]);
+
+    // Check if carouselStocks is undefined or not an array
+    if (!carouselStocks || !Array.isArray(carouselStocks)) {
+        return null; // or return a loading state or an empty div
+    }
 
     return (
         <div ref={containerRef} className="flex overflow-hidden rounded-t-lg">
-            {stocks.map((stock) => (
-                <StockBox key={stock._id} stock={stock} />
+            {carouselStocks.map((stock) => (
+                <StockBox key={stock.id} stock={stock} />
             ))}
         </div>
     );

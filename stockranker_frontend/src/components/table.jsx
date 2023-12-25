@@ -4,8 +4,7 @@ import ReactPaginate from 'react-paginate';
 import Search from './search'
 import DisqusCommentCount from './disqusCommentCount';
 
-const Table = () => {
-  const [stocks, setStocks] = useState([]);
+const Table = ({ stocks, setStocks }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -22,18 +21,8 @@ const Table = () => {
   };
 
   useEffect(() => {
-    const fetchStocks = async () => {
-      try {
-        const response = await fetch('https://stockranker-backend.onrender.com/api/v0/stocks');
-        const data = await response.json();
-        setStocks(data);
-      } catch (error) {
-        console.error('Error fetching stocks:', error);
-      }
-    };
-
-    fetchStocks();
-  }, []);
+    // No need to fetch stocks here; they are already passed as props from Home
+  }, [stocks, setStocks]);
 
   const handleLike = async (stockId) => {
     try {
