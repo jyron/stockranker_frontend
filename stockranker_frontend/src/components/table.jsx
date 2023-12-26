@@ -38,8 +38,8 @@ const Table = ({ stocks, setStocks }) => {
 
     } catch (error) {
       alert('Login to like a stock!');
-
     }
+    alert('Stock liked!');
   };
 
   const handleDislike = async (stockId) => {
@@ -56,6 +56,7 @@ const Table = ({ stocks, setStocks }) => {
     } catch (error) {
       alert('Login to dislike a stock!');
     }
+    alert('Stock disliked!');
   };
 
   const filteredStocks = searchTerm
