@@ -35,13 +35,12 @@ const Table = ({ stocks, setStocks }) => {
         const errorData = await response.json();
         throw new Error(`HTTP error! ${JSON.stringify(errorData)}`);
       }
+      alert('Stock liked!');
 
     } catch (error) {
       alert('Login to like a stock!');
     }
-    if (response.ok) {
-      alert('Stock liked!');
-    }
+
   };
 
   const handleDislike = async (stockId) => {
@@ -55,12 +54,11 @@ const Table = ({ stocks, setStocks }) => {
         const errorData = await response.json();
         throw new Error(`HTTP error! ${JSON.stringify(errorData)}`);
       }
+      alert('Stock disliked!');
     } catch (error) {
       alert('Login to dislike a stock!');
     }
-    if (response.ok) {
-      alert('Stock disliked!');
-    }
+
 
   };
 
