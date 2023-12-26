@@ -39,7 +39,9 @@ const Table = ({ stocks, setStocks }) => {
     } catch (error) {
       alert('Login to like a stock!');
     }
-    alert('Stock liked!');
+    if (response.ok) {
+      alert('Stock liked!');
+    }
   };
 
   const handleDislike = async (stockId) => {
@@ -56,7 +58,10 @@ const Table = ({ stocks, setStocks }) => {
     } catch (error) {
       alert('Login to dislike a stock!');
     }
-    alert('Stock disliked!');
+    if (response.ok) {
+      alert('Stock disliked!');
+    }
+
   };
 
   const filteredStocks = searchTerm
@@ -110,9 +115,11 @@ const Table = ({ stocks, setStocks }) => {
                     </div>
                   </div>
                 </td>
+                <td className="px-2 py-2 text-gray-900">{stock.likes || 0}</td>
+                <td className="px-2 py-2 text-gray-900">{stock.dislikes || 0}</td>
+
                 <td className="px-2 py-2 text-gray-900">
                   <div className="flex items-center">
-
                     <button
                       onClick={() => handleLike(stock._id)}
                       className="mr-2 text-green-500 hover:text-green-700"

@@ -311,11 +311,6 @@ const Home = ({ stocks, setStocks }) => {
         <div className="min-h-screen overflow-hidden">
             <Header />
             <StockCarousel stocks={stocks} />
-
-            {/* Content on the left side (e.g., news articles) */}
-
-
-            {/* Content on the right side (e.g., the table) */}
             <Table stocks={stocks} setStocks={setStocks} />
             <NewsArticlePage articles={articles} />
             <Footer />
