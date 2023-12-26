@@ -8,7 +8,6 @@ const StockCarousel = ({ stocks }) => {
     useEffect(() => {
         // Update the internal state when the 'stocks' prop changes
         setCarouselStocks(stocks);
-        console.log(stocks);
 
         const container = containerRef.current;
 
