@@ -311,20 +311,13 @@ const Home = ({ stocks, setStocks }) => {
         <div className="min-h-screen overflow-hidden">
             <Header />
             <StockCarousel stocks={stocks} />
-            <div className="min-h-screen overflow-hidden flex">
-                <div className="flex-2">
-                    <div className="ml-8 mt-8">
-                        {/* Content on the left side (e.g., news articles) */}
-                        <NewsArticlePage articles={articles} />
-                    </div>
-                </div>
-                <div className="flex-3">
-                    <div className="mr-8 mt-8">
-                        {/* Content on the right side (e.g., the table) */}
-                        <Table stocks={stocks} setStocks={setStocks} />
-                    </div>
-                </div>
-            </div>
+
+            {/* Content on the left side (e.g., news articles) */}
+            <NewsArticlePage articles={articles} />
+
+            {/* Content on the right side (e.g., the table) */}
+            <Table stocks={stocks} setStocks={setStocks} />
+
             <Footer />
         </div>
     );
