@@ -18,7 +18,7 @@ const Header = () => {
 
     const checkLoggedInUser = async () => {
         try {
-            const response = await fetch('https://https://stockranker-backend.onrender.com/api/v0/users/me', {
+            const response = await fetch('https://stockranker-backend.onrender.com/api/v0/users/me', {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',
@@ -42,7 +42,7 @@ const Header = () => {
 
     const handleLogout = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/v0/auth/jwt/logout', {
+            const response = await fetch('https://stockranker-backend.onrender.com/api/v0/auth/jwt/logout', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -63,16 +63,12 @@ const Header = () => {
             console.error('Logout failed:', error);
         }
     };
-    const handleLoginSuccess = () => {
-
+    const handleLoginSuccess = async () => {
+        await checkLoggedInUser();
         closeLoginModal();
-
-
-        checkLoggedInUser();
     };
 
     useEffect(() => {
-
         checkLoggedInUser();
     }, []);
 
