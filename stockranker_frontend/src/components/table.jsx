@@ -5,6 +5,7 @@ import Search from './search'
 import DisqusCommentCount from './disqusCommentCount';
 
 const Table = ({ stocks, setStocks }) => {
+  const api_url = import.meta.env.VITE_API_URL;
   const [currentPage, setCurrentPage] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -26,7 +27,7 @@ const Table = ({ stocks, setStocks }) => {
 
   const handleLike = async (stockId) => {
     try {
-      const response = await fetch(`https://stockranker-backend.onrender.com/api/v0/stocks/${stockId}/like`, {
+      const response = await fetch(`${api_url}/api/v0/stocks/${stockId}/like`, {
         method: 'POST',
         credentials: 'include',
       });
@@ -45,7 +46,7 @@ const Table = ({ stocks, setStocks }) => {
 
   const handleDislike = async (stockId) => {
     try {
-      const response = await fetch(`https://stockranker-backend.onrender.com/api/v0/stocks/${stockId}/dislike`, {
+      const response = await fetch(`${api_url}/api/v0/stocks/${stockId}/dislike`, {
         method: 'POST',
         credentials: 'include',
       });
@@ -91,7 +92,7 @@ const Table = ({ stocks, setStocks }) => {
 
           <tbody className="divide-y divide-gray-200">
             {displayedStocks.map((stock) => (
-              <tr key={stock.id} className="hover:bg-gray-100 cursor-pointer">
+              <tr key={stock._id} className="hover:bg-gray-100 cursor-pointer">
                 <td className="px-2 py-2 text-gray-900">
                   <img src={stock.logo} alt="Company Logo" className="h-8 w-8 object-cover rounded-full" />
                 </td>

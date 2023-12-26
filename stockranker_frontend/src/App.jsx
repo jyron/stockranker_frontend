@@ -5,12 +5,13 @@ import Home from './pages/Home';
 import StockDetailsPage from './pages/StockDetailsPage';
 
 const App = () => {
+  const api_url = import.meta.env.VITE_API_URL;
   const [stocks, setStocks] = useState([]);
 
   useEffect(() => {
     const fetchStocks = async () => {
       try {
-        const response = await fetch('https://stockranker-backend.onrender.com/api/v0/stocks');
+        const response = await fetch(`${api_url}/api/v0/stocks`);
         const data = await response.json();
         setStocks(data);
       } catch (error) {

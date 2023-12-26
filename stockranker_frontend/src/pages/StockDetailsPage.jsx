@@ -7,13 +7,14 @@ import Footer from '../components/footer';
 
 
 const StockDetailsPage = ({ stocks }) => {
+    const api_url = import.meta.env.VITE_API_URL;
     const { ticker } = useParams();
     const [stockDetails, setStockDetails] = useState(null);
 
     useEffect(() => {
         const fetchStockDetails = async () => {
             try {
-                const response = await fetch(`https://stockranker-backend.onrender.com/api/v0/stocks/${ticker}`);
+                const response = await fetch(`${api_url}/api/v0/stocks/${ticker}`);
                 const data = await response.json();
                 setStockDetails(data);
             } catch (error) {

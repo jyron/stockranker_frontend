@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 const RegistrationForm = ({ onSuccess }) => {
+    const api_url = import.meta.env.VITE_API_URL;
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -21,7 +22,7 @@ const RegistrationForm = ({ onSuccess }) => {
         console.log(formData)
 
         try {
-            const response = await fetch('https://stockranker-backend.onrender.com/api/v0/auth/register', {
+            const response = await fetch(`${api_url}/api/v0/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

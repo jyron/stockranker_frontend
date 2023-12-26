@@ -8,6 +8,7 @@ const StockCarousel = ({ stocks }) => {
     useEffect(() => {
         // Update the internal state when the 'stocks' prop changes
         setCarouselStocks(stocks);
+        console.log(stocks);
 
         const container = containerRef.current;
 
@@ -36,7 +37,7 @@ const StockCarousel = ({ stocks }) => {
     return (
         <div ref={containerRef} className="flex overflow-hidden rounded-t-lg">
             {carouselStocks.map((stock) => (
-                <StockBox key={stock.id} stock={stock} />
+                <StockBox key={stock._id} stock={stock} />
             ))}
         </div>
     );
