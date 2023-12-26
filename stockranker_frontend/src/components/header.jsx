@@ -105,6 +105,89 @@ const Header = () => {
                     <p className="mt-1.5 text-sm text-gray-500">
                         Real Opinions, Real Comments, Real Rankings! 🚀
                     </p>
+                    <br></br>
+                    <p>
+                        <h3 class="inline-block text-red-500">V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
+                        <h3 class="inline-block text-red-500"> V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
+                        <h3 class="inline-block text-red-500"> V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
+                        <h3 class="inline-block text-red-500"> V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
+                        <h3 class="inline-block text-red-500">V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
+                        <h3 class="inline-block text-red-500"> V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
+                        <h3 class="inline-block text-red-500"> V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
+                        <h3 class="inline-block text-red-500"> V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
+                        <h3 class="inline-block text-red-500">V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
+                        <h3 class="inline-block text-red-500"> V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
+                        <h3 class="inline-block text-red-500"> V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
+                        <h3 class="inline-block text-red-500"> V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
+                        <h3 class="inline-block text-red-500">V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
+                        <h3 class="inline-block text-red-500"> V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
+                        <h3 class="inline-block text-red-500"> V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
+                        <h3 class="inline-block text-red-500"> V</h3>
+                        <h3 class="inline-block text-orange-500">O</h3>
+                        <h3 class="inline-block text-yellow-500">T</h3>
+                        <h3 class="inline-block text-green-500">E</h3>
+                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
+                    </p>
                 </div>
 
             </div>

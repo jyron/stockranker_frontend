@@ -77,6 +77,7 @@ const Table = ({ stocks, setStocks }) => {
   return (
     <div className="p-8 rounded-lg border border-gray-200">
       <Search onSearch={handleSearch} />
+
       <div className="overflow-x-auto rounded-t-lg">
         <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
           <thead className="text-left">
