@@ -311,9 +311,8 @@ const Home = ({ stocks, setStocks }) => {
         <div className="min-h-screen overflow-hidden">
             <Header />
             <StockCarousel stocks={stocks} />
-            <div><NewsArticlePage articles={articles} /></div>
-
             <Table stocks={stocks} setStocks={setStocks} />
+            <div><NewsArticlePage articles={articles} /></div>
             <Footer />
         </div>
     );
