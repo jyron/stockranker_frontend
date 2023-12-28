@@ -94,7 +94,7 @@ const Table = ({ stocks, setStocks }) => {
             {displayedStocks.map((stock) => (
               <tr key={stock._id} className="hover:bg-gray-100 cursor-pointer">
                 <td className="px-2 py-2 text-gray-900">
-                  <img src={stock.logo} alt="Company Logo" className="h-8 w-8 object-cover rounded-full" />
+                  <img src={stock.logo} alt="Company Logo" className="h-12 w-12 object-cover rounded-full" />
                 </td>
                 <td className=" py-2 text-gray-900">
                   <div>
