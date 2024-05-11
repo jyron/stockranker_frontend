@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 const LoginForm = ({ onSuccess }) => {
+    const api_url = import.meta.env.VITE_API_URL;
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -19,7 +20,7 @@ const LoginForm = ({ onSuccess }) => {
         e.preventDefault();
 
         try {
-            const response = await fetch('https://stockranker-backend.onrender.com/api/v0/auth/jwt/login', {
+            const response = await fetch(`${api_url}/api/v0/auth/jwt/login`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
