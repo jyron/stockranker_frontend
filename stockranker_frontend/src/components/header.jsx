@@ -10,12 +10,8 @@ const Header = () => {
     const [showRegisterModal, setShowRegisterModal] = useState(false);
     const [userEmail, setUserEmail] = useState(null);
 
-    const openLoginModal = () => setShowLoginModal(true);
-    const closeLoginModal = () => setShowLoginModal(false);
-
-    const openRegisterModal = () => setShowRegisterModal(true);
-    const closeRegisterModal = () => setShowRegisterModal(false);
-
+    const toggleLoginModal = () => setShowLoginModal(!showLoginModal);
+    const toggleRegisterModal = () => setShowRegisterModal(!showRegisterModal);
 
     const checkLoggedInUser = async () => {
         try {
@@ -66,7 +62,7 @@ const Header = () => {
     };
     const handleLoginSuccess = async () => {
         await checkLoggedInUser();
-        closeLoginModal();
+        toggleLoginModal();
     };
 
     useEffect(() => {
@@ -75,161 +71,22 @@ const Header = () => {
 
     return (
         <header className="bg-gray-50">
-            <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-                {userEmail ? (
-                    <AuthenticatedHeader userEmail={userEmail} onLogout={handleLogout} />
-                ) : (
-                    <div className="flex items-center justify-end gap-4">
-                        <button
-                            onClick={openLoginModal}
-                            className="cursor-pointer block shrink-0 rounded-full bg-white p-2.5 text-gray-600 shadow-sm hover:text-gray-700"
-                        >
-                            <span className="sr-only">Login</span>
-                            Log In
-                        </button>
-                        <button
-                            onClick={openRegisterModal}
-                            className="cursor-pointer block shrink-0 rounded-full bg-white p-2.5 text-gray-600 shadow-sm hover:text-gray-700"
-                        >
-                            <span className="sr-only">Register</span>
-                            Register
-                        </button>
-                        <span aria-hidden="true" className="block h-6 w-px rounded-full bg-gray-200"></span>
-                    </div>
-                )}
-
-
-                <div className="mt-8">
-                    <Link to="/" className="text-blue-500 hover:underline">
-                        <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">StockRanker.Co</h1>
-                    </Link>
-                    <p className="mt-1.5 text-sm text-gray-500">
-                        Real Opinions, Real Comments, Real Rankings! 🚀
-                    </p>
-                    <br></br>
-                    <p>
-                        <h3 class="inline-block text-red-500">V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
-                        <h3 class="inline-block text-red-500"> V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
-                        <h3 class="inline-block text-red-500"> V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
-                        <h3 class="inline-block text-red-500"> V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
-                        <h3 class="inline-block text-red-500">V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
-                        <h3 class="inline-block text-red-500"> V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
-                        <h3 class="inline-block text-red-500"> V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
-                        <h3 class="inline-block text-red-500"> V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
-                        <h3 class="inline-block text-red-500">V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
-                        <h3 class="inline-block text-red-500"> V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
-                        <h3 class="inline-block text-red-500"> V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
-                        <h3 class="inline-block text-red-500"> V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
-                        <h3 class="inline-block text-red-500">V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
-                        <h3 class="inline-block text-red-500"> V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
-                        <h3 class="inline-block text-red-500"> V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">! </h3>
-                        <h3 class="inline-block text-red-500"> V</h3>
-                        <h3 class="inline-block text-orange-500">O</h3>
-                        <h3 class="inline-block text-yellow-500">T</h3>
-                        <h3 class="inline-block text-green-500">E</h3>
-                        <h3 class="mr-1 inline-block text-blue-500">!</h3>
-                    </p>
+            <div className="container mx-auto px-4 py-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between">
+                    <Link to="/" className="text-xl font-bold text-gray-900 sm:text-2xl">StockRanker.Co</Link>
+                    {userEmail ? (
+                        <AuthenticatedHeader userEmail={userEmail} onLogout={handleLogout} />
+                    ) : (
+                        <div className="flex items-center gap-4">
+                            <button onClick={toggleLoginModal} className="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">Log In</button>
+                            <button onClick={toggleRegisterModal} className="px-4 py-2 text-sm font-medium text-gray-800 bg-gray-200 rounded-md hover:bg-gray-300">Register</button>
+                        </div>
+                    )}
                 </div>
-
             </div>
-            {/* Login Modal */}
-            {showLoginModal && (
-                <div className="fixed z-10 inset-0 overflow-y-auto">
-                    <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                        <div className="fixed inset-0 transition-opacity" aria-hidden="true">
-                            <div className="absolute inset-0 bg-gray-500 opacity-75" onClick={closeLoginModal}></div>
-                        </div>
-
-                        <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
-                            &#8203;
-                        </span>
-
-                        {/* Login Modal Content */}
-                        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                            <LoginForm onSuccess={handleLoginSuccess} />
-                        </div>
-                    </div>
-                </div>
-            )}
-            {/* Register Modal */}
-            {showRegisterModal && (
-                <div className="fixed z-10 inset-0 overflow-y-auto">
-                    <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                        <div className="fixed inset-0 transition-opacity" aria-hidden="true">
-                            <div className="absolute inset-0 bg-gray-500 opacity-75" onClick={closeRegisterModal}></div>
-                        </div>
-
-                        <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
-                            &#8203;
-                        </span>
-
-                        {/* Register Modal Content */}
-                        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                            <RegistrationForm onSuccess={closeRegisterModal} />
-                        </div>
-                    </div>
-                </div>
-            )}
+            {/* Modals */}
+            {showLoginModal && <LoginForm onClose={toggleLoginModal} onSuccess={handleLoginSuccess} />}
+            {showRegisterModal && <RegistrationForm onClose={toggleRegisterModal} />}
         </header>
     );
 };

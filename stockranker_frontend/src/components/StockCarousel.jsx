@@ -43,3 +43,5 @@ const StockCarousel = ({ stocks }) => {
 };
 
 export default StockCarousel;
+
+
